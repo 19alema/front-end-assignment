@@ -19,7 +19,7 @@ function User() {
                    setError(err.message)
                  })
                  .then(data => dispatch(setUser(data.data)));
-             setLoading(false)
+                         setLoading(false)
     }
     useEffect(() => {
        fetchUser()
@@ -37,20 +37,27 @@ function User() {
                 
         )
     })
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    } else {
+        
     return (
         <div>
-            <p className="para">Click the button to find user...</p>
-            <div className="App">
-                {
-                    loading && <h2>Loading...</h2>
-                }
-
-                {
-                    error && <h2>Error occurred...</h2>
-                }
-                {userElement}
-            </div>
-        </div>
+         {
+                error? (<h2>Error Occured...</h2>) : (
+                    <>
+                        <p className="para">
+                            Click the button to find user...
+                        </p>
+                        <div className="App">
+                             {userElement}
+                         </div>
+                    </>
     )
+             }
+        </div>
+        )
+    }
 }
 export default User

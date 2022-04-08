@@ -35,17 +35,20 @@ function UserCard() {
     }, [userId])
    
     return (
+    <section>
+        {loading? <h2>loading..</h2> : (   
         <div className="card">
-            {loading && <p>Please wait...</p>}
-            <div className="header">
-                <img src={person.avatar} alt={person.last_name} />
-            <div>
-                <h4>Firs Name: {person.first_name}</h4>
-                <h4>Last Name: {person.last_name}</h4>
-                <p>Email: {person.email}</p>
-             </div>
-            </div>
-        </div>
+                <div className="header">
+                    <img src={person.avatar} alt={person.last_name} />
+                    <div>
+                        <h4>First Name: {person.first_name}</h4>
+                        <h4>Last Name: {person.last_name}</h4>
+                        <p>Email: {person.email}</p>
+                    </div>
+                </div>
+        </div> )
+        }
+    </section>
     )
 }
 
