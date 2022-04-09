@@ -26,9 +26,10 @@ function UserCard() {
            .catch(err => {
                console.log(err.message)
            })
-           .then(data =>
+           .then(data =>{
                dispatch(selectedUser(data.data)))
-       setLoading(false)
+             setLoading(false)
+       }
   }
     useEffect(() => {
         if (userId && userId !== "") getUser();
@@ -36,7 +37,7 @@ function UserCard() {
    
     return (
     <section>
-        {loading? <h2>loading..</h2> : (   
+        {loading? <h2>loading user..</h2> : (   
         <div className="card">
                 <div className="header">
                     <img src={person.avatar} alt={person.last_name} />

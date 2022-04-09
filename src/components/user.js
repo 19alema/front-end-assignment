@@ -18,8 +18,11 @@ function User() {
                  .catch(err => {
                    setError(err.message)
                  })
-                 .then(data => dispatch(setUser(data.data)));
-                         setLoading(false)
+                 .then(data => {
+                     dispatch(setUser(data.data))
+                      setLoading(false)
+                 });
+                        
     }
     useEffect(() => {
        fetchUser()
@@ -39,7 +42,7 @@ function User() {
     })
 
     if (loading) {
-        return <h1>Loading...</h1>
+        return <h1>Loading buttons ...</h1>
     } else {
         
     return (
